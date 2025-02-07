@@ -24,7 +24,7 @@ jobs:
 
       - name: Run basic Python syntax check
         run: |
-          python -m py_compile slot_machine.py
+          python -m py_compile main.py
 
       - name: Run tests with pytest # Nom modifié, commande pytest simple
         run: pytest
