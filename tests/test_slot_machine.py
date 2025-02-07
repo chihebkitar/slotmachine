@@ -1,5 +1,6 @@
 
-from main import get_slot_machine_spin, ROWS, COLS, symbol_count  # Importez ce que vous voulez tester
+from main import get_slot_machine_spin , ROWS, COLS, symbol_count
+
 
 def test_get_slot_machine_spin_returns_correct_structure():
     """

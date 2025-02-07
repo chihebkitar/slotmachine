@@ -138,5 +138,5 @@ def main():
     print(f"you left with ${balance}")
         
    
-
-main()
+if __name__ == "__main__":  
+    main()
