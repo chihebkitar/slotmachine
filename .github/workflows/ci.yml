@@ -1,0 +1,30 @@
+name: Simple CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: pip install pytest  # Modification ici : installation de pytest direct
+
+      - name: Run basic Python syntax check
+        run: |
+          python -m py_compile slot_machine.py
+
+      - name: Run tests with pytest # Nom modifié, commande pytest simple
+        run: pytest
