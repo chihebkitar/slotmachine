@@ -9,7 +9,6 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
@@ -19,12 +18,14 @@ jobs:
         with:
           python-version: "3.9"
 
+      - name: Add current directory to PYTHONPATH
+        run: echo "PYTHONPATH=.:$PYTHONPATH" >> $GITHUB_ENV
+
       - name: Install dependencies
-        run: pip install pytest  # Modification ici : installation de pytest direct
+        run: pip install pytest
 
       - name: Run basic Python syntax check
-        run: |
-          python -m py_compile main.py
+        run: python -m py_compile main.py
 
-      - name: Run tests with pytest # Nom modifié, commande pytest simple
-        run: pytest
+      - name: Run tests with pytest
+        run: python -m pytest tests/
